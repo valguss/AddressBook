@@ -7,4 +7,11 @@
 {% block body %}
     <h1>Address Book</h1>
     <h2>List</h2>
+
+    {% for contact in contacts %}
+        {{ contact.firstName }}
+        {{ contact.lastName }}
+        {{ contact.birthday|date }}
+    {% endfor %}
+
 {% endblock %}

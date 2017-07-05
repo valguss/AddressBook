@@ -1,0 +1,5 @@
+AppBundle\Entity\Contact:
+    contact_{1..10}:
+        firstName: <firstName()>
+        lastName: <lastName()>
+        birthday: <dateTimeBetween('-40 years', '-10 years')>
