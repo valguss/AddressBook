@@ -1,6 +1,7 @@
 $module-name: table;
 
 .$(module-name) {
+    font-size: 1.2rem;
 
     &__row {
         display: flex;

@@ -1,0 +1,34 @@
+/*
+INTRINSIC RATIO
+
+Calculate padding for a proportional wrapper
+Force an intrinsic ratio based on the width of the containing block to used as a
+wrapper for fixed aspect-ratio content.
+http://alistapart.com/article/creating-intrinsic-ratios-for-video
+
+USAGE:
+
+    div {
+        @mixin mixin--intrinsic-ratio 16, 9;
+        img {
+            @mixin mixin--intrinsic-ratio-element;
+        }
+    }
+
+*/
+
+@define-mixin mixin--intrinsic-ratio $ratio-x, $ratio-y {
+
+    height: 0;
+    padding-top: calc((1 / $ratio-x) * $ratio-y * 100%);
+    position: relative;
+
+}
+
+@define-mixin mixin--intrinsic-ratio-element {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}

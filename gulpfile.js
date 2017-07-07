@@ -84,7 +84,7 @@ gulp.task('watch', function () {
 
 gulp.task('browser-sync', function () {
     browserSync.init({
-        proxy: "http://"
+        proxy: "http://localhost:8000"
     });
 });
 

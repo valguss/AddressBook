@@ -1,0 +1,20 @@
+/*
+IMAGE REPLACEMENT - SCOTT KELLUM METHOD
+
+http://css-tricks.com/examples/ImageReplacement/#kellum
+
+USAGE:
+
+    p {
+        @mixin mixin--hide-text;
+    }
+
+*/
+
+@define-mixin mixin--hide-text {
+
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+
+}

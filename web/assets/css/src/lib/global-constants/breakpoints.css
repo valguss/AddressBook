@@ -1,0 +1,42 @@
+/*
+Custom Media Query Breakpoints
+
+https://drafts.csswg.org/mediaqueries/#custom-mq
+Name your breakpoints in a way that creates a ubiquitous language
+across team members. It will improve communication between
+stakeholders, designers, developers, and testers.
+
+The Ems Have It: Proportional Media Queries FTW!.
+http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/
+
+PX, EM or REM Media Queries?
+http://zellwk.com/blog/media-query-units/
+
+USAGE:
+
+    @media (--mobile-only) {
+    }
+    @media (--mobile-only), (--wide-only) {
+    }
+    @media (--tablet-only) and (script) {
+}
+
+NB. 1em = 16px
+
+*/
+
+@custom-media --mobile-only (max-width: 47.9375em);
+@custom-media --tablet-only (min-width: 48em) and (max-width: 71.25em);
+@custom-media --desktop-only (min-width: 71.3125em) and (max-width: 79.9375em);
+@custom-media --wide-only (min-width: 80em) and (max-width: 100em); /* will this ever be used? */
+
+@custom-media --up-to-mobile (max-width: 26.875em);
+@custom-media --up-to-tablet (max-width: 47.9375em);
+@custom-media --up-to-desktop (max-width: 71.25em);
+@custom-media --up-to-wide (max-width: 81.25em);
+
+@custom-media --from-mobile (min-width: 26.9375em);
+@custom-media --from-tablet (min-width: 48em);
+@custom-media --from-desktop (min-width: 71.3125em);
+@custom-media --from-wide (min-width: 80em);
+@custom-media --from-extra-wide (min-width: 100em);

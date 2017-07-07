@@ -1,0 +1,26 @@
+/*
+CLEARFIX - CONTAIN FLOATS
+
+https://github.com/h5bp/html5-boilerplate/blob/v4.3.0/doc/css.md#clearfix
+
+USAGE:
+
+    .something-i-want-to-contain-floats {
+        @mixin mixin--clearfix;
+    }
+
+*/
+
+@define-mixin mixin--clearfix {
+
+    &::before,
+    &::after {
+        content: ' ';
+        display: table;
+    }
+
+    &::after {
+        clear: both;
+    }
+
+}

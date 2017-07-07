@@ -2,17 +2,250 @@
         -webkit-box-flex: 1;
         -webkit-flex: 1;
             -ms-flex: 1;
-                flex: 1
+                flex: 1;
+
+}/*
+GLOBAL BASE
+A Base rule is applied to an element using an element selector,
+a descendent selector, or a child selector, along with any pseudo-classes.
+It doesn't include any class or ID selectors. It is defining the default
+styling for how that element should look in all occurrences on the page.
+http://smacss.com/book/type-base
+*//* stylelint-disable selector-no-type */html {
+
+    /* apply natural box layout model to all elements - http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+    box-sizing: border-box;
+
+    /*
+    base font typography
+    set font so 1 = 10px (base 10)
+    always set unit-less line-height - http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
+    Prevent font scaling in landscape while allowing user zoom
+    */
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 62.5%; /* stylelint-disable-line declaration-property-unit-whitelist */
+    line-height: 1;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+
+}*, *::before, *::after {
+    /* Inheriting box-sizing - http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+    box-sizing: inherit;
+}/* Responsive media elements */img, embed, object, video {
+    height: auto;
+    max-width: 100%;
+}/* fix element display in IE10/11 (lacks some html5 elements) */main {
+    display: block;
+}/* Remove the gap between images, videos, audio and canvas and the bottom of their containers: h5bp.com/i/440 */audio, canvas, img, svg, video {
+    vertical-align: middle;
+}/* Allow only vertical resizing of textareas. */textarea {
+    resize: vertical;
+}/* remove default styling */[type=text], button, select, textarea {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border-radius: 0;
+}/* http://davidwalsh.name/firefox-buttons */button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}/*
+remove “X” from search input
+http://geektnt.com/how-to-remove-x-from-search-input-field-on-chrome-and-ie.html
+*//* stylelint-disable */input[type=text]::-ms-clear {
+    display: none;
+    height: 0;
+    width : 0;
+}input[type=text]::-ms-reveal {
+    display: none;
+    height: 0;
+    width : 0;
+}input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}/* stylelint-enable */
+
+/*
+Custom Media Query Breakpoints
+
+https://drafts.csswg.org/mediaqueries/#custom-mq
+Name your breakpoints in a way that creates a ubiquitous language
+across team members. It will improve communication between
+stakeholders, designers, developers, and testers.
+
+The Ems Have It: Proportional Media Queries FTW!.
+http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/
+
+PX, EM or REM Media Queries?
+http://zellwk.com/blog/media-query-units/
+
+USAGE:
+
+    @media (--mobile-only) {
+    }
+    @media (--mobile-only), (--wide-only) {
+    }
+    @media (--tablet-only) and (script) {
+}
+
+NB. 1em = 16px
+
+*/
+
+/* will this ever be used? */
+/* DIN Next */
+@font-face {
+    font-family: 'din';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/DINNext.eot');
+    src: url('../fonts/DINNext.eot?#iefix') format('embedded-opentype'), url('../fonts/DINNext.woff') format('woff'), url('../fonts/DINNext.ttf') format('truetype'), url('../fonts/DINNext.svg#DINNext') format('svg');
+}
+/* quicksand */
+@font-face {
+    font-family: 'quicksand';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../fonts/quicksand_bold_oblique.eot');
+    src: url('../fonts/quicksand_bold_oblique.eot?#iefix') format('embedded-opentype'), url('../fonts/quicksand_bold_oblique.woff2') format('woff2'), url('../fonts/quicksand_bold_oblique.woff') format('woff'), url('../fonts/quicksand_bold_oblique.ttf') format('truetype'), url('../fonts/quicksand_bold_oblique.svg#quicksandbold_oblique') format('svg');
+}
+@font-face {
+    font-family: 'quicksand';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/quicksand_bold.eot');
+    src: url('../fonts/quicksand_bold.eot?#iefix') format('embedded-opentype'), url('../fonts/quicksand_bold.woff2') format('woff2'), url('../fonts/quicksand_bold.woff') format('woff'), url('../fonts/quicksand_bold.ttf') format('truetype'), url('../fonts/quicksand_bold.svg#quicksandbold') format('svg');
+}
+@font-face {
+    font-family: 'quicksand';
+    font-style: italic;
+    font-weight: 300;
+    src: url('../fonts/quicksand_light_oblique.eot');
+    src: url('../fonts/quicksand_light_oblique.eot?#iefix') format('embedded-opentype'), url('../fonts/quicksand_light_oblique.woff2') format('woff2'), url('../fonts/quicksand_light_oblique.woff') format('woff'), url('../fonts/quicksand_light_oblique.ttf') format('truetype'), url('../fonts/quicksand_light_oblique.svg#quicksandlight_oblique') format('svg');
+}
+@font-face {
+    font-family: 'quicksand';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/quicksand_light.eot');
+    src: url('../fonts/quicksand_light.eot?#iefix') format('embedded-opentype'), url('../fonts/quicksand_light.woff2') format('woff2'), url('../fonts/quicksand_light.woff') format('woff'), url('../fonts/quicksand_light.ttf') format('truetype'), url('../fonts/quicksand_light.svg#quicksandlight') format('svg');
+}
+/* quicksandbook */
+@font-face {
+    font-family: 'quicksand';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/quicksand_book_oblique.eot');
+    src: url('../fonts/quicksand_book_oblique.eot?#iefix') format('embedded-opentype'), url('../fonts/quicksand_book_oblique.woff2') format('woff2'), url('../fonts/quicksand_book_oblique.woff') format('woff'), url('../fonts/quicksand_book_oblique.ttf') format('truetype'), url('../fonts/quicksand_book_oblique.svg#quicksandbook_oblique') format('svg');
+}
+@font-face {
+    font-family: 'quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/quicksand_book.eot');
+    src: url('../fonts/quicksand_book.eot?#iefix') format('embedded-opentype'), url('../fonts/quicksand_book.woff2') format('woff2'), url('../fonts/quicksand_book.woff') format('woff'), url('../fonts/quicksand_book.ttf') format('truetype'), url('../fonts/quicksand_book.svg#quicksandbook') format('svg');
+}
+@font-face {
+    font-family: 'icomoon';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/icomoon.eot?-c9u098');
+    src: url('../fonts/icomoon.eot?#iefix-c9u098') format('embedded-opentype'), url('../fonts/icomoon.ttf?-c9u098') format('truetype'), url('../fonts/icomoon.woff?-c9u098') format('woff'), url('../fonts/icomoon.svg?-c9u098#icomoon') format('svg');
+}
+/*
+
+http://cssnext.io/features/#custom-selectors
+
+USAGE:
+
+    a:--enter {
+
+    }
+
+OUTPUT:
+
+    a:hover, a:focus, a--enter {
+
+    }
+
+*/
+
+/*
+CLEARFIX - CONTAIN FLOATS
+
+https://github.com/h5bp/html5-boilerplate/blob/v4.3.0/doc/css.md#clearfix
+
+USAGE:
+
+    .something-i-want-to-contain-floats {
+        @mixin mixin--clearfix;
+    }
+
+*/
+/*
+IMAGE REPLACEMENT - SCOTT KELLUM METHOD
+
+http://css-tricks.com/examples/ImageReplacement/#kellum
+
+USAGE:
+
+    p {
+        @mixin mixin--hide-text;
+    }
+
+*/
+/*
+INTRINSIC RATIO
+
+Calculate padding for a proportional wrapper
+Force an intrinsic ratio based on the width of the containing block to used as a
+wrapper for fixed aspect-ratio content.
+http://alistapart.com/article/creating-intrinsic-ratios-for-video
+
+USAGE:
+
+    div {
+        @mixin mixin--intrinsic-ratio 16, 9;
+        img {
+            @mixin mixin--intrinsic-ratio-element;
+        }
+    }
+
+*/
+
+/* Modules */
+.button {
+    background: #ccc;
+    border: 0;
+    border-radius: .6rem;
+    color: #999;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    padding: 0 20px;
+    padding: 0 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle
+}
+.button:hover {
+        background: #999;
+        color: #ccc;
+
 }
 .table {
+    font-size: 12px;
+    font-size: 1.2rem
 }
 .table__row {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        margin: 0 0 16px;
-        margin: 0 0 1rem
+        margin: 0 0 10px;
+        margin: 0 0 1rem;
+
 }
 
 /*# sourceMappingURL=styles.css.map */

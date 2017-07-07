@@ -1,0 +1,18 @@
+/*
+
+http://cssnext.io/features/#custom-selectors
+
+USAGE:
+
+    a:--enter {
+
+    }
+
+OUTPUT:
+
+    a:hover, a:focus, a--enter {
+
+    }
+
+*/
+@custom-selector :--enter :hover, :focus, --enter;

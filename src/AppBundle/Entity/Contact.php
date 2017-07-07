@@ -32,6 +32,8 @@ class Contact {
 	/**
 	 * @ORM\Column(type="date")
 	 * @Assert\NotBlank()
+	 * @Assert\LessThan("today")
+	 *
 	 */
 	private $birthday;
 

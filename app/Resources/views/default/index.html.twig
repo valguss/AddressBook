@@ -15,11 +15,11 @@
                 <div class="table__cell">{{ contact.birthday|date }}</div>
                 <div class="table__cell">
                     <a href="{{ path('addressBook_view', {'id': contact.id}) }}" class="button">View</a>
-                    <a href="{{ path('addressBook_edit', {'id': contact.id}) }}" class="button">Edit</a>
+                    <a href="{{ path('addressBook_edit', {'id': contact.id}) }}" class="button button--edit">Edit</a>
                 </div>
             </div>
         {% endfor %}
     </div>
-    <a href="{{ path('addressBook_new') }}" class="button">New</a>
+    <a href="{{ path('addressBook_new') }}" class="button button--new">New</a>
 
 {% endblock %}

@@ -24,7 +24,7 @@
                 <div class="table__cell">{{ address.county }}</div>
                 <div class="table__cell">{{ address.postcode }}</div>
                 <div class="table__cell">
-                    <a href="#" data-id="{{ address.id }}">Edit</a>
+                    <a href="{{ path('address_edit', {'contact_id': contact.id, 'id': address.id}) }}" class="button button--edit" data-id="{{ address.id }}">Edit</a>
                 </div>
             </div>
         {% endfor %}

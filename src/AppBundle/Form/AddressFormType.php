@@ -1,33 +1,28 @@
 <?php
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Contact;
+use AppBundle\Entity\Address;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ContactFormType extends AbstractType {
+class AddressFormType extends AbstractType {
 
 	public function buildForm( FormBuilderInterface $builder, array $options ) {
 
-		$builder->add('firstName')
-			->add('lastName')
-			->add('birthday', DateType::class, array(
-				'widget' => 'choice',
-				'years' => range(1900,date('Y'))
-			));
+		$builder->add('firstLine')
+			->add('secondLine');
 	}
 
 	public function configureOptions(OptionsResolver $resolver)
 	{
 		$resolver->setDefaults([
-			'data_class' => Contact::class
+			'data_class' => Address::class
 		]);
 	}
 
 	public function getBlockPrefix()
 	{
-		return 'app_bundle_contact_form_type';
+		return 'app_bundle_address_form_type';
 	}
 }

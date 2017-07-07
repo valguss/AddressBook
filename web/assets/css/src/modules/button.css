@@ -1,0 +1,21 @@
+$module-name: button;
+
+.$(module-name) {
+    background: $colour-button;
+    border: 0;
+    border-radius: .6rem;
+    color: $colour-button-text;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    padding: 0 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    &:hover {
+        background: $colour-button-hover;
+        color: $colour-button-text-hover;
+    }
+}
