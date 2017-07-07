@@ -1,0 +1,13 @@
+$module-name: table;
+
+.$(module-name) {
+
+    &__row {
+        display: flex;
+        margin: 0 0 1rem;
+    }
+
+    &__cell {
+        flex: 1;
+    }
+}

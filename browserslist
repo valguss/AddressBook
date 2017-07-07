@@ -1,0 +1,10 @@
+# Browsers that we support
+# https://github.com/ai/browserslist
+
+> 2%
+Last 2 versions
+IE 9
+IE 10
+IE 11
+Safari 8
+Safari 9

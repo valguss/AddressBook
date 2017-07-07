@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    View
+{% endblock %}
+
+{% block body %}
+    <h2>View</h2>
+
+    <div class="table">
+        <div class="table__row">
+            <div class="table__cell">{{ contact.firstName }}</div>
+            <div class="table__cell">{{ contact.lastName }}</div>
+            <div class="table__cell">{{ contact.birthday|date }}</div>
+        </div>
+    </div>
+
+    <div class="table">
+        {% for address in contact.address %}
+            <div class="table__row">
+                <div class="table__cell">{{ address.firstLine }}</div>
+                <div class="table__cell">{{ address.secondLine }}</div>
+                <div class="table__cell">{{ address.city }}</div>
+                <div class="table__cell">{{ address.county }}</div>
+                <div class="table__cell">{{ address.postcode }}</div>
+                <div class="table__cell">
+                    <a href="#" data-id="{{ address.id }}">Edit</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

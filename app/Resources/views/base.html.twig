@@ -3,10 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <title>Address Book - {% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+
+        <h1>Address Book</h1>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

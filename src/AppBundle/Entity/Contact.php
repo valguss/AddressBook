@@ -2,6 +2,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class ContactEntity
@@ -18,18 +19,26 @@ class Contact {
 
 	/**
 	 * @ORM\Column(type="string")
+	 * @Assert\NotBlank()
 	 */
 	private $firstName;
 
 	/**
 	 * @ORM\Column(type="string")
+	 * @Assert\NotBlank()
 	 */
 	private $lastName;
 
 	/**
 	 * @ORM\Column(type="date")
+	 * @Assert\NotBlank()
 	 */
 	private $birthday;
+
+	/**
+	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Address", mappedBy="contact")
+	 */
+	private $address;
 
     /**
      * Get id
@@ -112,4 +121,18 @@ class Contact {
     {
         return $this->birthday;
     }
+
+	/**
+	 * @return mixed
+	 */
+	public function getAddress() {
+		return $this->address;
+	}
+
+	/**
+	 * @param mixed $address
+	 */
+	public function setAddress( $address ) {
+		$this->address = $address;
+	}
 }

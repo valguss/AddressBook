@@ -3,3 +3,17 @@ AppBundle\Entity\Contact:
         firstName: <firstName()>
         lastName: <lastName()>
         birthday: <dateTimeBetween('-40 years', '-10 years')>
+
+AppBundle\Entity\Country:
+    country_{1..100}:
+        countryName: <country()>
+
+AppBundle\Entity\Address:
+    address_{1..100}:
+        firstLine: <streetName()>
+        secondLine: <streetAddress()>
+        city: <city()>
+        county: <state()>
+        postcode: <postcode()>
+        contact: '@contact_*'
+        country: '@country_*'

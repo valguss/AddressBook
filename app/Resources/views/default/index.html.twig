@@ -5,13 +5,21 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Address Book</h1>
     <h2>List</h2>
 
-    {% for contact in contacts %}
-        {{ contact.firstName }}
-        {{ contact.lastName }}
-        {{ contact.birthday|date }}
-    {% endfor %}
+    <div class="table">
+        {% for contact in contacts %}
+            <div class="table__row">
+                <div class="table__cell">{{ contact.firstName }}</div>
+                <div class="table__cell">{{ contact.lastName }}</div>
+                <div class="table__cell">{{ contact.birthday|date }}</div>
+                <div class="table__cell">
+                    <a href="{{ path('addressBook_view', {'id': contact.id}) }}" class="button">View</a>
+                    <a href="{{ path('addressBook_edit', {'id': contact.id}) }}" class="button">Edit</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ path('addressBook_new') }}" class="button">New</a>
 
 {% endblock %}
